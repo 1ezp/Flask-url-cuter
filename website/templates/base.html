@@ -30,7 +30,7 @@
         {% if messages %}
             {% for category,message in messages %}
                 {% if category == 'success' %}
-                    <h3 class="display-4 text-center">new url >> <a href="{{message}}" target="_blank">{{message}}</a></h3>
+                    <p class="display-4 text-center">new url >> <a href="{{message}}" target="_blank">{{message}}</a></p>
                 {% endif%}
             {% endfor %}
         {% endif %}
