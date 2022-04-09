@@ -24,7 +24,7 @@ def cute():
                 u = Url(url=url,new_url=new_url)
                 db.session.add(u)
                 db.session.commit()
-                flash('http://127.0.0.1:5000/'+new_url,category='success')
+                flash(request.base_url+new_url,category='success')
                 break
         print(url)
     return render_template('base.html')
