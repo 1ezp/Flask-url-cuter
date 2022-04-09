@@ -1,6 +1,6 @@
 from flask import Blueprint,render_template,request,flash,redirect
 from .models import Url
-from ..main import db
+from main import db
 import json,random
 views = Blueprint('views',__name__)
 randomletters = 'qwertyuiopasdfghjklzxcvbnm123456789'
