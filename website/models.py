@@ -1,4 +1,4 @@
-from . import db
+from ..main import db
 from sqlalchemy import func
 
 class Url(db.Model):
