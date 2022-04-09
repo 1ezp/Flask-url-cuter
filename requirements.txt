@@ -3,3 +3,7 @@ flask_sqlalchemy
 sqlalchemy
 gunicorn
 psycopg2
+mysql-connector
+mysql-connector-python
+pymysql
+cryptography

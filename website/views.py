@@ -1,6 +1,6 @@
 from flask import Blueprint,render_template,request,flash,redirect
 from .models import Url
-from main import db
+from . import db
 import json,random
 views = Blueprint('views',__name__)
 randomletters = 'qwertyuiopasdfghjklzxcvbnm123456789'
@@ -22,14 +22,20 @@ def cute():
                 pass
             else:
                 u = Url(url=url,new_url=new_url)
+                print(new_url,request.base_url)
                 db.session.add(u)
                 db.session.commit()
-                flash(request.base_url+new_url,category='success')
+                if 'cute' in str(request.base_url):
+                    base = str(request.base_url).split('/cute')[0]
+                flash(base+'/'+new_url,category='success')
                 break
         print(url)
     return render_template('base.html')
 
-@views.route('/<string:url>')
-def re(url):
-    y = Url.query.filter_by(new_url=url).first()
+@views.route('/<string:ur>')
+def re(ur):
+    if 'cute' in ur:
+        ur = ur.split('cute')[1]
+    y = Url.query.filter_by(new_url=ur).first()
+    
     return redirect(y.url)
